@@ -17,9 +17,9 @@ public class MailUtil {
     //邮件服务器主机名
     private static String myEmailSMTPHost = "smtp.qq.com";
     //发件人邮箱
-    private static String myEmailAccount = "xxxxxx@qq.com";
+    private static String myEmailAccount = "xxxxxxxxxxx@qq.com";
     //发件人授权码
-    private static String myEmailPassword = "xxxxxxx";
+    private static String myEmailPassword = "xxxxxx";
 
     public static void sendMail(String toEmailAdress,String emailTitle,String emailContent) throws Exception{
         Properties properties = new Properties();
@@ -66,7 +66,7 @@ public class MailUtil {
         msg.setText(builder.toString());
 
         //设置发件人
-        msg.setFrom(new InternetAddress(myEmailAccount,"工作站","UTF-8"));
+        msg.setFrom(new InternetAddress(myEmailAccount,"甜蜜蜜网","UTF-8"));
 
         //得到邮差对象
         Transport transport = session.getTransport();
