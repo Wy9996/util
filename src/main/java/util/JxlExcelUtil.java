@@ -10,8 +10,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+//通过jxl获取excel中的数据
 //仅支持.xls格式
-public class ExcelUtil {
+public class JxlExcelUtil {
 
     @Test
     public void Excel(){
