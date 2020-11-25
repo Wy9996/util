@@ -9,15 +9,16 @@ import javax.mail.internet.MimeMessage;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.Map;
 import java.util.Properties;
 
 public class MailUtil {
     //邮件服务器主机名
     private static String myEmailSMTPHost = "smtp.qq.com";
     //发件人邮箱
-    private static String myEmailAccount = "1111xxxxxx@qq.com";
+    private static String myEmailAccount = "250668861@qq.com";
     //发件人授权码
-    private static String myEmailPassword = "111xxxxxxx";
+    private static String myEmailPassword = "rurvarmhlsbrbgfd";
 
     public static void sendMail(String toEmailAdress,String emailTitle,String emailContent) throws Exception{
         Properties properties = new Properties();
@@ -64,7 +65,7 @@ public class MailUtil {
         msg.setText(builder.toString());
 
         //设置发件人
-        msg.setFrom(new InternetAddress(myEmailAccount,"测试","UTF-8"));
+        msg.setFrom(new InternetAddress(myEmailAccount,"工作站","UTF-8"));
 
         //得到邮差对象
         Transport transport = session.getTransport();
@@ -83,17 +84,31 @@ public class MailUtil {
 
         transport.close();
     }
-
+    /*
+     * 向邮箱发送验证码
+     * */
     public static void main(String[] args) {
-        try {
-            String ad = "1015355840@qq.com";
-            String tt = "测试标题";
-            String cc = "测试内容";
-            sendMail(ad,tt,cc);
-            System.out.println("success");
-        }catch (Exception e){
-            System.out.println("fail");
-        }
+
+                try{
+                    //接收人
+                    String mailAddress = "1015355840@qq.com";
+                    //生成验证码
+                    String verifyCode = RandomUtil.getCode();
+                    //邮件主题
+                    String emailTitle = "邮箱验证";
+                    //邮件内容
+                    String emailContent = "您正在进行邮箱验证，您的验证码为：" + verifyCode + "，请于5分钟内完成验证！";
+                    //发送邮件
+                    sendMail(mailAddress, emailTitle, emailContent);
+
+                    System.out.println("邮箱验证码发送成功");
+                }catch(Exception e){
+                    System.out.println("邮箱验证码发送失败");
+                }
+
+
+
 
     }
+
 }
