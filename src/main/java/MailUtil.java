@@ -15,9 +15,9 @@ public class MailUtil {
     //邮件服务器主机名
     private static String myEmailSMTPHost = "smtp.qq.com";
     //发件人邮箱
-    private static String myEmailAccount = "xxxxxx@qq.com";
+    private static String myEmailAccount = "1111xxxxxx@qq.com";
     //发件人授权码
-    private static String myEmailPassword = "xxxxxxx";
+    private static String myEmailPassword = "111xxxxxxx";
 
     public static void sendMail(String toEmailAdress,String emailTitle,String emailContent) throws Exception{
         Properties properties = new Properties();
